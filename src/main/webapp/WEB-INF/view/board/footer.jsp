@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <div class="bg-light p-5 text-center">
     <h4>Created by Metacoding</h4>
     <h5>☎ 010-2222-7777</h5>

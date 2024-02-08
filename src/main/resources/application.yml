@@ -7,20 +7,23 @@ server:
       timeout: 30m
   port: 8080
 
-# JSP, mustache 원하는거 사용
 spring:
-  mustache:
-    servlet:
-      expose-session-attributes: true
-      expose-request-attributes: true
+  mvc:
+    view:
+      prefix: /WEB-INF/view/
+      suffix: .jsp
+  servlet:
+    expose-session-attributes: true
+    expose-request-attributes: true
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:mem:test;MODE=MySQL
-    username: sa
-    password:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/board?serverTimeZone=Asia/Seoul
+    username: root
+    password: asd1234
   h2:
     console:
       enabled: true
+
 #  sql:
 #    init:
 #      data-locations:
@@ -33,5 +36,14 @@ spring:
 #      hibernate:
 #        format_sql: true
 #    defer-datasource-initialization: true
+mybatis:
+  mapper-locations:
+  - classpath:mapper/**.xml
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
     
+  logging:
+    level:
+      org.mybatis: DEBUG
     
